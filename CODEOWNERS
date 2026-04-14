@@ -1,0 +1,11 @@
+* @platform-admin
+/apps/merchant-terminal-app/ @merchant-app-owner
+/apps/admin-dashboard/ @dashboard-owner
+/apps/support-console/ @support-console-owner
+/services/identity-service/ @identity-owner
+/services/auth-service/ @auth-owner
+/services/consent-service/ @consent-owner
+/services/policy-engine/ @risk-owner
+/services/transaction-orchestrator/ @payments-owner
+/adapters/monnify/ @integration-owner
+/docs/compliance/ @compliance-owner
