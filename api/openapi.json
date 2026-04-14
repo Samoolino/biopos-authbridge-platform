@@ -1,0 +1,72 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "BioPOS AuthBridge API",
+    "version": "0.1.0",
+    "description": "MVP API contract for merchant-endpoint biometric authorization."
+  },
+  "servers": [{"url": "https://api.example.com"}],
+  "paths": {
+    "/health": {
+      "get": {
+        "summary": "Service health",
+        "responses": {"200": {"description": "OK"}}
+      }
+    },
+    "/api/v1/authorize": {
+      "post": {
+        "summary": "Authorize a biometric merchant-endpoint transaction",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {"$ref": "#/components/schemas/AuthorizationRequest"}
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Authorization decision",
+            "content": {
+              "application/json": {
+                "schema": {"$ref": "#/components/schemas/AuthorizationDecision"}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AuthorizationRequest": {
+        "type": "object",
+        "required": ["requestId","merchantId","terminalId","customerRef","amount","currency","transactionType","biometricProofToken","timestamp"],
+        "properties": {
+          "requestId": {"type": "string"},
+          "merchantId": {"type": "string"},
+          "terminalId": {"type": "string"},
+          "customerRef": {"type": "string"},
+          "amount": {"type": "number"},
+          "currency": {"type": "string"},
+          "transactionType": {"type": "string", "enum": ["payment","cash_out","transfer","approval"]},
+          "biometricProofToken": {"type": "string"},
+          "timestamp": {"type": "string", "format": "date-time"}
+        }
+      },
+      "AuthorizationDecision": {
+        "type": "object",
+        "required": ["requestId","status","amlFlag","riskScore","consentId"],
+        "properties": {
+          "requestId": {"type": "string"},
+          "status": {"type": "string", "enum": ["pending","approved","failed","reversed","under_review"]},
+          "reasonCode": {"type": "string"},
+          "amlFlag": {"type": "boolean"},
+          "riskScore": {"type": "integer"},
+          "consentId": {"type": "string"},
+          "settlementRef": {"type": "string"}
+        }
+      }
+    }
+  }
+}
