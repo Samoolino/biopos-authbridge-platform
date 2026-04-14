@@ -1,0 +1,25 @@
+{
+  "name": "biopos-authbridge-platform",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Enterprise-scale platform for biometric merchant-endpoint authorization, consent evidence generation, policy-based approval, and partner rail orchestration.",
+  "workspaces": [
+    "apps/*",
+    "services/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "start": "tsx apps/api-gateway/src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "build": "tsc -p tsconfig.json",
+    "test": "echo \"Add tests\"",
+    "lint": "echo \"Add linter\""
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.0.0",
+    "express": "^4.21.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}
