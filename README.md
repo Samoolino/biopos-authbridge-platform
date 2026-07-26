@@ -4,4 +4,5 @@ Enterprise-scale platform for biometric merchant-endpoint authorization, consent
 
 
 
-https://tinyurl.com/Bio-Pos-moniepoint-illus
+😊✨ Please watch this video illustration. It provides a clear and practical demonstration of the concept. 🎥👀
+🔗 https://tinyurl.com/Bio-Pos-moniepoint-illus
